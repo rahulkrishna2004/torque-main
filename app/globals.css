@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Anek Devanagari';
+    src: url('/Fonts/AnekLatin-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  
+  body {
+    font-family: 'Anek Devanagari', sans-serif;
+  }
+  
+
+  .elfsight-app  {
+    display: none !important;
+  }
+
+  .es-header{
+    display: none;
+  }
+
+  .eui-widget-title a{
+    display: none;
+  }
+
+  
+::-webkit-scrollbar {
+  width: 1px;              
+  height: 1px;             
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;     
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00DAFF;  
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
