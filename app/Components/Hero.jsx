@@ -76,7 +76,7 @@ const Hero = () => {
           autoPlay
           muted
           playsInline
-          src="/Herovideo.mp4"
+          src="https://res.cloudinary.com/dycm7vkuq/video/upload/v1744367852/100_MB_skq4tw.mp4"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1 }}
           animate={isComplete ? { scale: 1.1 } : { scale: 1 }}

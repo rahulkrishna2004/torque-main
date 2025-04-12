@@ -24,7 +24,7 @@ const Menu = ({ onClose }) => {
               muted
               loop
               playsInline
-              src="/88481-606110665.mp4"
+              src="https://res.cloudinary.com/dycm7vkuq/video/upload/v1744367852/100_MB_skq4tw.mp4"
               className="w-full h-full object-cover rounded-md"
             />
           </div>
