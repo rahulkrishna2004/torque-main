@@ -71,12 +71,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col overflow-hidden">
       <Navlinks isComplete={true} />
-      <div className="flex-grow bg-black px-4 md:px-55 py-16">
-        <div className="flex flex-col md:flex-row justify-between items-start pt-20 md:pt-10">
+      <div className="flex-grow bg-black px-4 md:px-30 md:py-16 py-6">
+        <div className="flex flex-col md:flex-row justify-between items-start pt-20 md:pt-15">
           <div className="business-info text-zinc-200 px-4 md:px-20 space-y-4 text-center text-sm md:text-left mt-10 md:mt-20">
-            <p className="font-bold text-2xl">Business info</p>
+            <p className="font-bold text-3xl md:px-0 px-20 ">Business info</p>
             <p>
               29, 4th B Cross, 5th Block, Koramangala,
               <br />

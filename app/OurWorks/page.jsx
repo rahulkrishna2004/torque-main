@@ -6,7 +6,7 @@ import Footer from "../Components/Footer";
 
 const page = () => {
   return (
-    <div className="w-full min-h-full bg-black">
+    <div className="w-full min-h-full bg-black overflow-hidden">
       <Navlinks isComplete={true} />
       <div className="w-[90%] m-auto overflow-x-hidden flex flex-col justify-center items-center h-full py-32">
         <div className="text-center mb-12">
