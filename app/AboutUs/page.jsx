@@ -36,7 +36,7 @@ const Page = () => {
       {/* Hero Section */}
       <div className="w-full flex justify-center px-4 pt-10 pb-20">
         <div
-          className="relative w-full max-w-[1200px] h-[600px] top-20 rounded-[30px] overflow-hidden bg-cover bg-center shadow-2xl transition-all duration-500"
+          className="relative w-full max-w-[1300px] h-[600px] top-20 rounded-[30px] overflow-hidden bg-cover bg-center shadow-2xl transition-all duration-500"
           style={{
             backgroundImage: `url(https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHx8MA%3D%3D)`,
             transition: "transform 0.6s ease-out",

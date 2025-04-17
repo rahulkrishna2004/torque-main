@@ -11,6 +11,7 @@ const ImageSlider = ({
 }) => {
   const [isResizing, setIsResizing] = useState(false);
   const [position, setPosition] = useState(50);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const sliderRef = useRef(null);
 
   const handleMouseDown = (e) => {
@@ -18,68 +19,111 @@ const ImageSlider = ({
     if (e.touches) handleTouchMove(e.touches[0]);
   };
 
-  const handleMouseUp = () => {
-    setIsResizing(false);
-  };
+  const handleMouseUp = () => setIsResizing(false);
 
   const handleMouseMove = (e) => {
     if (!isResizing || !sliderRef.current) return;
-    
     const rect = sliderRef.current.getBoundingClientRect();
     const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-    const percentage = (x / rect.width) * 100;
-    setPosition(percentage);
+    setPosition((x / rect.width) * 100);
   };
 
   const handleTouchMove = (touch) => {
     if (!isResizing || !sliderRef.current) return;
-    
     const rect = sliderRef.current.getBoundingClientRect();
     const x = Math.max(0, Math.min(touch.clientX - rect.left, rect.width));
-    const percentage = (x / rect.width) * 100;
-    setPosition(percentage);
+    setPosition((x / rect.width) * 100);
   };
 
   useEffect(() => {
-    const events = {
-      mouse: {
-        move: handleMouseMove,
-        up: handleMouseUp
-      },
-      touch: {
-        move: (e) => handleTouchMove(e.touches[0]),
-        up: handleMouseUp
-      }
+    const mouseEvents = {
+      move: handleMouseMove,
+      up: handleMouseUp
+    };
+    const touchEvents = {
+      move: (e) => handleTouchMove(e.touches[0]),
+      up: handleMouseUp
     };
 
     if (isResizing) {
-      window.addEventListener('mousemove', events.mouse.move);
-      window.addEventListener('mouseup', events.mouse.up);
-      window.addEventListener('touchmove', events.touch.move);
-      window.addEventListener('touchend', events.touch.up);
+      window.addEventListener('mousemove', mouseEvents.move);
+      window.addEventListener('mouseup', mouseEvents.up);
+      window.addEventListener('touchmove', touchEvents.move);
+      window.addEventListener('touchend', touchEvents.up);
     }
 
     return () => {
-      window.removeEventListener('mousemove', events.mouse.move);
-      window.removeEventListener('mouseup', events.mouse.up);
-      window.removeEventListener('touchmove', events.touch.move);
-      window.removeEventListener('touchend', events.touch.up);
+      window.removeEventListener('mousemove', mouseEvents.move);
+      window.removeEventListener('mouseup', mouseEvents.up);
+      window.removeEventListener('touchmove', touchEvents.move);
+      window.removeEventListener('touchend', touchEvents.up);
     };
   }, [isResizing]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated && !isResizing) {
+          let animationFrame;
+          let startTime;
+          const duration = 2000;
+  
+          const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+  
+            let newPos;
+  
+            if (elapsed < duration) {
+              // 50 → 90
+              newPos = 50 + ((90 - 50) * (elapsed / duration));
+            } else if (elapsed < duration * 2) {
+              // 90 → 0
+              newPos = 90 - ((85) * ((elapsed - duration) / duration));
+            } else {
+              setPosition(5);
+              setHasAnimated(true);
+              return;
+            }
+  
+            setPosition(newPos);
+            animationFrame = requestAnimationFrame(animate);
+          };
+  
+          animationFrame = requestAnimationFrame(animate);
+  
+          return () => cancelAnimationFrame(animationFrame);
+        }
+      },
+      {
+        threshold: 0.5, // start animating when 50% is visible
+      }
+    );
+  
+    if (sliderRef.current) observer.observe(sliderRef.current);
+  
+    return () => {
+      if (sliderRef.current) observer.unobserve(sliderRef.current);
+    };
+  }, [hasAnimated, isResizing]);
+  
+
   return (
-    <div 
+    <div
       ref={sliderRef}
       className="relative w-full h-[200px] xs:h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] overflow-hidden rounded-lg shadow-xl"
     >
+      {/* Before Image */}
       <div className="absolute inset-0">
         <img
           src={beforeImage}
+          alt="Before"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
       </div>
 
+      {/* After Image (clip path) */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
@@ -92,6 +136,7 @@ const ImageSlider = ({
         />
       </div>
 
+      {/* Slider Handle */}
       <div
         className="absolute top-[10%] bottom-[10%] w-0.5 bg-white cursor-ew-resize select-none touch-none"
         style={{ left: `${position}%` }}

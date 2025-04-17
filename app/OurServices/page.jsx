@@ -71,19 +71,19 @@ const ComplexServices = () => {
   <div className="w-full bg-black overflow-hidden  lg:overflow-visible">
     <Navlinks isComplete={true} />
 
-    <div className="relative w-full px-6 md:px-16 lg:px-20 pt-28 ">
+    <div className="relative w-full px-6 md:px-16 lg:px-40 pt-28  ">
       <img
         src="/715.jpg"
         alt="Our Services"
-        className="w-full h-[500px] object-cover rounded-3xl"
+        className="w-full h-[500px] object-cover rounded-3xl mx-1 "
       />
-      <div className="absolute inset-0 flex flex-col justify-end pb-10 md:pb-20 px-6 md:px-16 lg:px-24 bg-gradient-to-t from-black/80 to-transparent rounded-3xl">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white anton tracking-wide">
+      <div className="absolute inset-0 flex flex-col justify-end pb-10 md:pb-20 px-6 md:px-26 lg:px-24 left-30 bg-gradient-to-t from-black to-transparent rounded-3xl">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white  tracking-wide">
           Our Services
         </h1>
         <p className="text-white mt-4 max-w-2xl text-base sm:text-lg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          nobis consequuntur recusandae, soluta modi quaerat...
+          nobis consequuntur recusandae, soluta modi quaerat..
         </p>
       </div>
     </div>
