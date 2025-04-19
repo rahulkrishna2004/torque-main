@@ -7,9 +7,15 @@ import Footer from "../Components/Footer";
 
 const Page = () => {
   const images = [
-    "https://images.unsplash.com/photo-1722850312872-52ebbd041a90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBvcnNjaGUlMjA5MTF8ZW58MHx8MHx8fDA%3D.avif",
-    "https://images.unsplash.com/photo-1613921568536-555645be4032?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.avif",
-    "https://images.unsplash.com/photo-1657217674225-b0f100f5b23f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744896503/unnamed_tqnwac.jpg",
+    "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744894420/TQ2_bunhsw.jpg",
+    "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744894420/TQ3_l4jnla.jpg",
+  ];
+
+  const img = [
+    "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744894424/TQ1_kgbzwa.jpg",
+    "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744896651/u_bnybbp.jpg",
+    "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744896548/unname_gpl2g2.jpg",
   ];
 
   const scrollRef1 = useRef(null);
@@ -38,7 +44,7 @@ const Page = () => {
         <div
           className="relative w-full max-w-[1200px] h-[600px] top-20 rounded-[30px] overflow-hidden bg-cover bg-center shadow-2xl transition-all duration-500"
           style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHx8MA%3D%3D)`,
+            backgroundImage: `url(https://res.cloudinary.com/dycm7vkuq/image/upload/v1744894420/TQ4_dppgdh.jpg)`,
             transition: "transform 0.6s ease-out",
           }}
         >
@@ -89,7 +95,7 @@ const Page = () => {
         className="w-full bg-black py-12 px-4 sm:px-10 overflow-hidden"
       >
         <div className="flex flex-col sm:flex-row gap-6 items-center justify-center min-w-full">
-          {images.map((img, index) => (
+          {img.map((img, index) => (
             <motion.div
               key={index}
               style={{ x: isDesktop ? xLeftToRight : 0 }}

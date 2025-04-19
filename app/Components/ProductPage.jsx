@@ -12,32 +12,26 @@ import Link from "next/link";
 
 const products = [
   {
-    img: "2c345ede-c27d-4d7f-b43f-2546859a9834_600x600.jpg",
-    name: "RAT REPELLENT SPRAY",
+    img: "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744975254/TR2_az9js5.jpg",
+    name: "Engine Coating",
     mrp: "466",
     Link: "/Product",
   },
   {
-    img: "34c0453a-ffbf-463d-aa1c-fc41df58b145_600x600.jpg",
-    name: "RAT REPELLENT SPRAY",
+    img: "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744975254/TR4_d5yk2s.jpg",
+    name: "Tar & Adhesive Remover",
     mrp: "466",
     Link: "/Product",
   },
   {
-    img: "50142_Express-Shine-Carnauba-Wax-16oz_PDP_Square_Tile1_600x600.jpg",
-    name: "CARNAUBA WAX",
+    img: "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744975254/TR5_kzonyn.jpg",
+    name: "Plastic & Rubber Care",
     mrp: "466",
     Link: "/Product",
   },
   {
-    img: "fed913bd-68d5-48ef-9861-0c2609ca9900_600x600.webp",
-    name: "RAT REPELLENT SPRAY",
-    mrp: "466",
-    Link: "/Product",
-  },
-  {
-    img: "f67f2ace-2b45-48e8-9d79-08c17ebbb8df_600x600.webp",
-    name: "RAT REPELLENT SPRAY",
+    img: "https://res.cloudinary.com/dycm7vkuq/image/upload/v1744975254/TR3_cp1stx.jpg",
+    name: "Air Conditioner Sanitizer",
     mrp: "466",
     Link: "/Product",
   },
@@ -78,7 +72,7 @@ const ProductPage = () => {
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white p-4 shadow-md rounded-md text-black flex flex-col items-center">
+            <div className="bg-[#fff] p-4 shadow-md rounded-md text-black flex flex-col items-center">
               <Link href={product.Link} className="w-full flex flex-col items-center">
                 <img
                   src={product.img}

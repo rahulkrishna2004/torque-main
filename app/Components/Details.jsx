@@ -87,7 +87,7 @@ const Testimonials = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-[#1e1e1e] p-6 rounded-xl shadow-lg h-full min-h-[350px] flex flex-col justify-between"
+                className="bg-[#1e1e1e] p-6 rounded-xl shadow-lg lg:h-[400px] sm:h-[800px] md:h-[500px] flex flex-col justify-between"
               >
                 <p className="italic text-lg text-left">{testimonial.quote}</p>
 

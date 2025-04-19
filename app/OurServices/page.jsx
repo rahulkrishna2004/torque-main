@@ -73,7 +73,7 @@ const ComplexServices = () => {
 
     <div className="relative w-full px-6 md:px-16 lg:px-20 pt-28 ">
       <img
-        src="/715.jpg"
+        src="https://res.cloudinary.com/dycm7vkuq/image/upload/v1744896503/unnamed_tqnwac.jpg"
         alt="Our Services"
         className="w-full h-[500px] object-cover rounded-3xl"
       />
@@ -166,17 +166,17 @@ const ComplexServices = () => {
           <h2 className="text-3xl font-black underline">CONTACT US</h2>
           <div>
             <h3 className="text-[#00DAFF] text-2xl font-bold">PHONE</h3>
-            <p>(406) 555-0120</p>
-            <p>(316) 555-0116</p>
+            <p>+91 96869 68315 / +91 8884440944</p>
           </div>
           <div>
             <h3 className="text-[#00DAFF] text-2xl font-bold">KENTUCKY OFFICE</h3>
-            <p>4517 Washington Ave. Manchester, Kentucky 39495</p>
+            <p>29, 4th B Cross, 5th Block, Koramangala,
+            Bengaluru, Karnataka 560095</p>
           </div>
           <div>
             <h3 className="text-[#00DAFF] text-2xl font-bold">OPENING HOURS</h3>
-            <p>09:00 am - 06:00 pm</p>
-            <p>Monday - Friday</p>
+            <p>Mon - Sat: 7am - 5pm</p>
+            <p>(By Appointment Only)</p>
           </div>
         </div>
       </div>

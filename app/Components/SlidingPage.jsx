@@ -34,7 +34,7 @@ const SlidingPage = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="w-full min-h-screen bg-black text-white" id="second">
+    <div className="w-full min-h-[60vh] pt-0 bg-black text-white" id="second">
       {/* Section 1: Sliding Logos */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -85,7 +85,7 @@ const SlidingPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-6xl text-center relative font-medium"
+          className="text-2xl sm:text-3xl lg:mt-5 md:text-6xl text-center relative font-medium"
         >
           Quality & Sustainable{" "}
           <span className="font-bold text-[#00DAFF]">Car Care</span>
@@ -97,7 +97,7 @@ const SlidingPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center px-4 text-[12px] sm:text-[14px] md:text-xl max-w-2xl mt-4 text-gray-300"
+          className="text-center px-4 text-[12px] sm:text-[14px] md:text-xl max-w-2xl mt-2 text-gray-300"
         >
           We’re committed to creating car care solutions that are effective,
           affordable, and sustainable for a cleaner car and a cleaner world.
@@ -109,82 +109,13 @@ const SlidingPage = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-6 px-4 sm:px-6 py-2 sm:py-3 border-2 border-[#00DAFF] text-[#00DAFF] text-md sm:text-lg font-medium rounded-full flex items-center gap-2 hover:bg-[#00DAFF] hover:text-white hover:font-bold transition-all duration-300"
+          className="mt-14 px-4 sm:px-6 py-2 sm:py-3 border-2 border-[#00DAFF] text-[#00DAFF] text-md sm:text-lg font-medium rounded-full flex items-center gap-2 hover:bg-[#00DAFF] hover:text-white hover:font-bold transition-all duration-300"
         >
           <Link href={`/OurServices`} >Our services →</Link>
         </motion.button>
       </div>
 
-      {/* Section 3: Dealership Images with Scroll & Hover Effect */}
-      <div className="flex w-full justify-center ">
-        <motion.div className="flex gap-3 mt-10" layout>
-          {dealerships.map((dealer, index) => (
-            <motion.div
-              key={index}
-              className="relative overflow-hidden rounded-4xl flex flex-col items-center"
-              layout
-              initial={{ width: "420px" }}
-              animate={{
-                width:
-                  hoveredIndex === index
-                    ? "620px"
-                    : hoveredIndex === null
-                    ? "420px"
-                    : "320px",
-              }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
-              transition={{
-                width: {
-                  duration: 0.7,
-                  ease: [0.32, 0.72, 0, 1],
-                },
-                layout: {
-                  duration: 0.7,
-                  ease: [0.32, 0.72, 0, 1],
-                },
-              }}
-            >
-              <a href={dealer.link}>
-                <motion.img
-                  src={dealer.src}
-                  className="h-[420px] object-cover rounded-4xl cursor-pointer"
-                  style={{
-                    width: "620px",
-                    objectPosition: "left center",
-                  }}
-                  alt={dealer.name}
-                  transition={{
-                    duration: 0.7,
-                    ease: [0.32, 0.72, 0, 1],
-                  }}
-                />
-              </a>
-              {/* Dealer Name & Arrow */}
-              <div className="flex items-center mx-5">
-                <motion.div
-                  className="w-full text-left my-5 text-2xl"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {dealer.name}
-                </motion.div>
-                <a href={dealer.link}>
-                  <motion.div
-                    className="text-2xl mx-5 mt-1 cursor-pointer"
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <ArrowRight />
-                  </motion.div>
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+      
 
       {/* CSS for Animation */}
       <style jsx>{`
